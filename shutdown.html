@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWatt - Shut Down Devices</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fdee;
+        }
+        .text-ecowatt-green {
+            color: #4a934a;
+        }
+        .bg-ecowatt-green {
+            background-color: #4a934a;
+        }
+        .device-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .device-card:hover {
+            transform: translateY(-5px);
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .on-label {
+            display: none;
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        .off-label {
+            color: #d32f2f;
+            font-weight: 600;
+        }
+        input:checked ~ .on-label {
+            display: block;
+        }
+        input:checked ~ .off-label {
+            display: none;
+        }
+        .navbar {
+    background: #fff; 
+    padding: 0.5em 0;
+    
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0 1.5em;
+}
+.navbar a {
+    color: #4CAF50; 
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+                .navbar a:hover {
+    color: #fff;
+    background: #4CAF50;
+    border-bottom: 2px solid #00bcd4;
+}
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+   
+        <header class="bg-white shadow-md p-4 sticky top-0 z-50">
+            <div class="container mx-auto flex items-center justify-between">
+                <h1 class="text-2xl font-bold text-ecowatt-green"><a href="index.html">EcoWatt</a></h1>
+                <button id="menu-btn" class="md:hidden text-gray-600 hover:text-ecowatt-green focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+                <nav class="navbar hidden md:block">
+                    <ul class="flex flex-col md:flex-row md:space-x-6">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="main dash board.html">Dashboard</a></li>
+                        <li><a href="camera.html">ThermoSense</a></li>
+                        <li><a href="doctor.html">Home Doctor</a></li>
+                        <li><a href="t&g.html">Tips&Guides</a></li>
+                        <li><a href="contact .html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="login.html" class="text-gray-600 hover:text-ecowatt-green ml-4">Log In</a>
+            </div>
+            <nav id="mobile-menu" class="navbar md:hidden hidden">
+                <ul class="flex flex-col space-y-2">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="main dash board.html">Dashboard</a></li>
+                    <li><a href="camera.html">ThermoSense</a></li>
+                    <li><a href="doctor.html">Home Doctor</a></li>
+                    <li><a href="t&g.html">Tips&Guides</a></li>
+                    <li><a href="contact .html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <script>
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        </script>
+                  
+                <a- href="login.html" class="text-gray-600 hover:text-ecowatt-green hidden md:block">Log In</a>
+                <button class="text-gray-600 hover:text-ecowatt-green focus:outline-none md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    
+    <main class="flex-grow py-8 px-4 md:px-8">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center md:text-left">Control Devices</h2>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                
+                <div class="device-card">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-tv text-3xl text-gray-500"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Living Room TV</h3>
+                            <p class="text-sm text-gray-500">Samsung QLED</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                
+                <div class="device-card">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-fan text-3xl text-gray-500"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Kitchen Fan</h3>
+                            <p class="text-sm text-gray-500">Ceiling Fan</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                
+                <div class="device-card">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-snowflake text-3xl text-gray-500"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Bedroom AC</h3>
+                            <p class="text-sm text-gray-500">LG Air Conditioner</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                
+                 <div class="device-card">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-lightbulb text-3xl text-gray-500"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Living Room Light</h3>
+                            <p class="text-sm text-gray-500">Smart Bulb</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="device-card">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-gamepad text-3xl text-gray-500"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Gaming Console</h3>
+                            <p class="text-sm text-gray-500">PlayStation 5</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+  
+    
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EcoWatt - Tips & Guides</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+                body {
+                        font-family: 'Inter', sans-serif;
+                        background-color: #f7f9fc;
+                        color: #333;
+                }
+                .text-ecowatt-green {
+                        color: #4CAF50;
+                }
+                .bg-ecowatt-green {
+                        background-color: #4CAF50;
+                }
+                  .navbar {
+    background: #fff; 
+    padding: 0.5em 0;
+    
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0 1.5em;
+}
+.navbar a {
+    color: #4CAF50; 
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+                .navbar a:hover {
+    color: #fff;
+    background: #4CAF50;
+    border-bottom: 2px solid #00bcd4;
+}
+        </style>
+</head>
+<body class="flex flex-col min-h-screen">
+        <header class="bg-white shadow-md p-4 sticky top-0 z-50">
+            <div class="container mx-auto flex items-center justify-between">
+                <h1 class="text-2xl font-bold text-ecowatt-green"><a href="index.html">EcoWatt</a></h1>
+                <div class="flex items-center">
+                   <nav class="navbar hidden md:block">
+                    <ul class="flex flex-col md:flex-row md:space-x-6">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="main dash board.html">Dashboard</a></li>
+                        <li><a href="camera.html">ThermoSense</a></li>
+                        <li><a href="doctor.html">Home Doctor</a></li>
+                        <li><a href="t&g.html">Tips&Guides</a></li>
+                        <li><a href="contact .html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button id="menu-btn" class="md:hidden ml-4 text-gray-600 hover:text-ecowatt-green focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+                <a href="login.html" class="text-gray-600 hover:text-ecowatt-green ml-4">Log In</a>
+            </div>
+            <nav id="mobile-menu" class="navbar md:hidden hidden">
+                <ul class="flex flex-col space-y-2">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="main dash board.html">Dashboard</a></li>
+                    <li><a href="camera.html">ThermoSense</a></li>
+                    <li><a href="doctor.html">Home Doctor</a></li>
+                    <li><a href="t&g.html">Tips&Guides</a></li>
+                    <li><a href="contact .html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const menuBtn = document.getElementById('menu-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (menuBtn && mobileMenu) {
+                    menuBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                    document.addEventListener('click', function(e) {
+                        if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    });
+                }
+            });
+        </script>
+
+    
+    <main class="flex-grow">
+        <div class="bg-ecowatt-light-green py-10 px-4 md:py-20 md:px-8">
+            <div class="container mx-auto flex flex-col items-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-ecowatt-green mb-8 text-center">Energy-Saving Tips & Guides</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 flex flex-col h-full">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Unplug Idle Electronics</h3>
+                        <p class="text-gray-600 text-sm md:text-base">
+                            Devices like TVs, chargers, and coffee makers still consume "vampire energy" even when turned off. Unplug them when not in use to save up to 10% on your electricity bill.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 flex flex-col h-full">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Switch to LED Lighting</h3>
+                        <p class="text-gray-600 text-sm md:text-base">
+                            LED bulbs use up to 85% less energy than traditional incandescent bulbs and last much longer. It's a simple change that makes a big impact.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 flex flex-col h-full">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Use Smart Power Strips</h3>
+                        <p class="text-gray-600 text-sm md:text-base">
+                            These power strips can automatically shut off power to devices that aren't in use, helping you eliminate vampire energy without having to unplug everything.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 flex flex-col h-full">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Manage Your Thermostat</h3>
+                        <p class="text-gray-600 text-sm md:text-base">
+                            Set your thermostat a few degrees higher in the summer and a few degrees lower in the winter to significantly reduce heating and cooling costs. A smart thermostat can automate this for you.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 flex flex-col h-full">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Seal Air Leaks</h3>
+                        <p class="text-gray-600 text-sm md:text-base">
+                            Check for drafts around windows and doors and seal them with caulk or weatherstripping. This prevents conditioned air from escaping and makes your HVAC system work more efficiently.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 flex flex-col h-full">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Run Appliances at Off-Peak Hours</h3>
+                        <p class="text-gray-600 text-sm md:text-base">
+                            If your utility offers time-of-use pricing, running large appliances like your washing machine or dishwasher at night can save you money when energy is cheaper.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+   
+    
+ 
+    
+</body>
+</html>
